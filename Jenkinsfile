@@ -10,13 +10,13 @@
 pipeline {
     stages {
         stage('Build') {
-            echo 'Building..'
+            steps { echo 'Building..' }
         }
         stage('Test') {
-            echo 'Testing..'
+            steps { echo 'Testing..' }
         }
         stage('Deploy') {
-            echo 'Deploying....'
+            steps { echo 'Deploying....' }
         }
     }
 }
