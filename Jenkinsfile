@@ -1,7 +1,8 @@
 #!groovy
 
 pipeline {
-    // agent any
+    agent any
+    /*
     agent {
         checkout scm
 
@@ -11,6 +12,7 @@ pipeline {
             }
         }
     }
+    */
 
     stages {
         stage('Build') {
