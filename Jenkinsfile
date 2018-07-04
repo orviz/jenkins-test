@@ -8,18 +8,12 @@ node {
     }
 
     stage('Build') {
-        step {
-            echo 'Building..'
-        }
+        echo 'Building..'
     }
     stage('Test') {
-        step {
-            echo 'Testing..'
-        }
+        echo 'Testing..'
     }
     stage('Deploy') {
-        step {
-            echo 'Deploying....'
-        }
+        echo 'Deploying....'
     }
 }
