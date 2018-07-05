@@ -28,9 +28,9 @@ pipeline {
 
             }
         }
-
-        post {
-            archiveArtifacts artifacts: 'debs/*.deb'
-        }                          
     }
+
+    post {
+        archiveArtifacts artifacts: 'debs/*.deb'
+    }                          
 }
