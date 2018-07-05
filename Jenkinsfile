@@ -32,8 +32,7 @@ pipeline {
 
     post {
         success {
-            sh 'pwd'
-        //    archiveArtifacts artifacts: '**/*.deb'
+            archiveArtifacts artifacts: '/tmp/cloud-info-provider/**/*.deb'
         }
     }                          
 }
