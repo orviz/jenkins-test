@@ -8,8 +8,8 @@ pipeline {
     //}
     agent none
 
-    //stages {
-    //    stage('Build') {
+    stages {
+        stage('Build') {
     //        steps {
     //            parallel ubuntu: {
                     node('bubuntu16') {
@@ -43,7 +43,7 @@ pipeline {
     //                }
     //            }
     //        }
-    //    }
-    //}
+        }
+    }
 
 }
