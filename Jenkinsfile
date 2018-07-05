@@ -3,8 +3,9 @@
 pipeline {
     agent {
         node {
-            label 'bubuntu16'
             def workspace = pwd()
+
+            label 'bubuntu16'
         }
     }
     
