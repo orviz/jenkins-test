@@ -7,10 +7,6 @@ pipeline {
         }
     }
 
-    environment {
-        WORKWTF = pwd()
-    }
-
     stages {
         stage('Build') {
             steps {
