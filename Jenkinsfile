@@ -13,7 +13,7 @@ pipeline {
                 echo 'Building..'
                 sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider /tmp/cloud-info-provider'
                 dir('/tmp/cloud-info-provider') {
-                    sh 'apt-get update && apt-get install -y devscripts debhelper python-all-dev python-pbr python-setuptools'
+                    sh 'sudo apt-get update && sudo apt-get install -y devscripts debhelper python-all-dev python-pbr python-setuptools'
                 }
             }
         }
