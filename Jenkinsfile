@@ -14,7 +14,7 @@ pipeline {
                 parallel ubuntu: {
                     node('bubuntu16') {
                         //stages {
-                            steps {
+                            //steps {
                             //echo 'Building DEBs on Ubuntu 16.06..'
                             //sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider'
 
@@ -29,7 +29,7 @@ pipeline {
                             //    sh 'debuild --no-tgz-check clean binary'
                             //}
                             //}
-                        }
+                        //}
                         post {
                             success {
                                 archiveArtifacts artifacts: '**/debs/*.deb'
