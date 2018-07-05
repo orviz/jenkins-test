@@ -15,34 +15,25 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider /tmp/cloud-info-provider'
+                sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider'
 
-                echo "WORKSPACE: ${WORKSPACE}"
-                echo "WORKSPACE: ${env.WORKSPACE}"
-
-                //dir('/tmp/cloud-info-provider') {
                 dir("${WORKSPACE}/cloud-info-provider") {
-                    sh 'find'
-                    //sh 'sudo apt-get update && sudo apt-get install -y devscripts debhelper python-all-dev python-pbr python-setuptools'
-                    //sh 'debuild --no-tgz-check clean binary'
+                    sh 'sudo apt-get update && sudo apt-get install -y devscripts debhelper python-all-dev python-pbr python-setuptools'
+                    sh 'debuild --no-tgz-check clean binary'
                 }
-                //dir('/tmp/cloud-info-provider/debs/cloud-info-provider-openstack') {
-                //    sh 'debuild --no-tgz-check clean binary'
-                //}
-                //dir('/tmp/cloud-info-provider/debs/cloud-info-provider-opennebula') {
-                //    sh 'debuild --no-tgz-check clean binary'
-                //}
-                //dir('/tmp/cloud-info-provider') {
-                //    sh 'find | grep deb'
-                //}
-
+                dir("${WORKSPACE}/cloud-info-provider/debs/cloud-info-provider-openstack") {
+                    sh 'debuild --no-tgz-check clean binary'
+                }
+                dir("${WORKSPACE}/cloud-info-provider/debs/cloud-info-provider-opennebula") {
+                    sh 'debuild --no-tgz-check clean binary'
+                }
             }
         }
     }
 
-    //post {
-    //    success {
-    //        archiveArtifacts artifacts: '/tmp/cloud-info-provider/debs/*.deb'
-    //    }
-    //}                          
+    post {
+        success {
+            archiveArtifacts artifacts: '**/debs/*.deb'
+        }
+    }                          
 }
