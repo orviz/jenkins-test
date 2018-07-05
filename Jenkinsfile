@@ -8,10 +8,10 @@ pipeline {
     //}
     agent none
 
-    stages {
-        stage('Build') {
-            steps {
-                parallel ubuntu: {
+    //stages {
+    //    stage('Build') {
+    //        steps {
+    //            parallel ubuntu: {
                     node('bubuntu16') {
                         stages {
                             //steps {
@@ -36,15 +36,15 @@ pipeline {
                             }
                         }                          
                     }
-                },
-                centos: {
-                    node('bcentos7') {
-                        echo 'Building RPMs on CentOS7..'
-                        sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider'
-                    }
-                }
-            }
-        }
-    }
+    //            },
+    //            centos: {
+    //                node('bcentos7') {
+    //                    echo 'Building RPMs on CentOS7..'
+    //                    sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider'
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 
 }
