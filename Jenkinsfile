@@ -7,17 +7,24 @@ pipeline {
         }
     }
 
+    environment {
+        WORKWTF = pwd()
+    }
+
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
                 sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider /tmp/cloud-info-provider'
 
+                echo "WORKWTF (outside): ${env.WORKWTF}"
+                echo "WORKWTF (outside): ${WORKWTF}"
+
                 withEnv(["WORKSPACE=${pwd()}"]) {
-                    echo 'workspace: ${env.WORKSPACE}'
-                    echo 'workspace: ${WORKSPACE}'
                     echo "workspace: ${env.WORKSPACE}"
                     echo "workspace: ${WORKSPACE}"
+                    echo "WORKWTF: ${env.WORKWTF}"
+                    echo "WORKWTF: ${WORKWTF}"
                 }
                 //dir('/tmp/cloud-info-provider') {
                 //dir('cloud-info-provider') {
