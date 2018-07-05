@@ -1,6 +1,6 @@
 #!groovy
 
-//node {
+node {
 //    checkout scm
 //    agent {
         docker.withServer('tcp://172.16.39.13:2375') {
@@ -16,4 +16,4 @@
             //}
         }
 //    }
-//}
+}
