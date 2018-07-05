@@ -10,7 +10,7 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
+            //steps {
                 parallel ubuntu: {
                     node('bubuntu16') {
                         //stages {
@@ -43,7 +43,7 @@ pipeline {
                         sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider'
                     }
                 }
-            }
+            //}
         }
     }
 
