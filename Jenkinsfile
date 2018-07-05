@@ -3,14 +3,14 @@
 pipeline {
     agent {
         node {
-            def workspace = pwd()
-
             label 'bubuntu16'
         }
     }
     
     stages {
         stage('Build') {
+            def workspace = pwd()
+
             steps {
                 echo 'Building..'
                 sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider /tmp/cloud-info-provider'
