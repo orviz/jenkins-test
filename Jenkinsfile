@@ -32,7 +32,7 @@ pipeline {
 
     post {
         success {
-            archiveArtifacts artifacts: '/tmp/cloud-info-provider/**/*.deb'
+            archiveArtifacts artifacts: '/tmp/cloud-info-provider/debs/*.deb'
         }
     }                          
 }
