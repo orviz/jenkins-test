@@ -31,9 +31,9 @@ pipeline {
     }
 
     post {
-        sh 'pwd'
-        //success {
+        success {
+            sh 'pwd'
         //    archiveArtifacts artifacts: '**/*.deb'
-        //}
+        }
     }                          
 }
