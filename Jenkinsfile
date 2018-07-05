@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
     //        steps {
-    //            parallel ubuntu: {
+                parallel ubuntu: {
                     node('bubuntu16') {
                         stage {
                             steps {
@@ -35,15 +35,14 @@ pipeline {
                             }
                         }                          
                     }
-    //            },
-    //            centos: {
-    //                node('bcentos7') {
+                },
+                centos: {
+                    node('bcentos7') {
     //                    echo 'Building RPMs on CentOS7..'
     //                    sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider'
-    //                }
-    //            }
-    //        }
+                    }
+                }
+            }
         }
     }
-
-}
+//}
