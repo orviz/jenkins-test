@@ -32,7 +32,7 @@ pipeline {
 
     post {
         success {
-            archiveArtifacts artifacts: 'debs/*.deb'
+            archiveArtifacts artifacts: '**/*.deb'
         }
     }                          
 }
