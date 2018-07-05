@@ -2,7 +2,7 @@
 
 //node {
 //    checkout scm
-    agent {
+//    agent {
         docker.withServer('tcp://172.16.39.13:2375') {
             docker.image('indigodatacloud/ci-images:python')
             //stage('Build') {
@@ -15,5 +15,5 @@
             //    echo 'Deploying....'
             //}
         }
-    }
+//    }
 //}
