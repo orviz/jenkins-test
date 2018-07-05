@@ -13,7 +13,7 @@ pipeline {
             steps {
                 parallel ubuntu: {
                     node('bubuntu16') {
-                        stage('RPM') {
+                        stages {
                             //echo 'Building DEBs on Ubuntu 16.06..'
                             //sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider'
 
