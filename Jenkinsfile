@@ -15,7 +15,6 @@ pipeline {
                 dir('/tmp/cloud-info-provider') {
                     sh 'sudo apt-get update && sudo apt-get install -y devscripts debhelper python-all-dev python-pbr python-setuptools'
                     sh 'debuild --no-tgz-check clean binary'
-                /*
                 }
                 dir('/tmp/cloud-info-provider/debs/cloud-info-provider-openstack') {
                     sh 'debuild --no-tgz-check clean binary'
@@ -25,14 +24,13 @@ pipeline {
                 }
                 dir('/tmp/cloud-info-provider') {
                     sh 'find | grep deb'
-                */
-                    dir('debs/debs/cloud-info-provider-openstack') {
-                        sh 'debuild --no-tgz-check clean binary'
-                    }
                 }
 
             }
         }
-                                        
+
+        post {
+            archiveArtifacts artifacts: 'debs/*.deb'
+        }                          
     }
 }
