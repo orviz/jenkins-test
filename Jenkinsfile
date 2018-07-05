@@ -16,6 +16,12 @@ pipeline {
                     sh 'sudo apt-get update && sudo apt-get install -y devscripts debhelper python-all-dev python-pbr python-setuptools'
                     sh 'debuild --no-tgz-check clean binary'
                 }
+                dir('debs/cloud-info-provider-openstack') {
+                    sh 'debuild --no-tgz-check clean binary'
+                }
+                dir('debs/cloud-info-provider-opennebula') {
+                    sh 'debuild --no-tgz-check clean binary'
+                }
             }
         }
                                         
