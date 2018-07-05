@@ -9,9 +9,9 @@ pipeline {
     
     stages {
         stage('Build') {
-            def workspace = pwd()
-
             steps {
+                def workspace = pwd()
+
                 echo 'Building..'
                 sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider /tmp/cloud-info-provider'
                 echo 'workspace: $workspace'
