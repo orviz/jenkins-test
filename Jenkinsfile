@@ -19,21 +19,12 @@ pipeline {
 
                 echo "WORKSPACE: ${WORKSPACE}"
                 echo "WORKSPACE: ${env.WORKSPACE}"
-                //echo "WORKWTF (outside): ${env.WORKWTF}"
-                //echo "WORKWTF (outside): ${WORKWTF}"
-
-                //withEnv(["WORKSPACE=${pwd()}"]) {
-                //    echo "workspace: ${env.WORKSPACE}"
-                //    echo "workspace: ${WORKSPACE}"
-                //    echo "WORKWTF: ${env.WORKWTF}"
-                //    echo "WORKWTF: ${WORKWTF}"
-                //}
 
                 //dir('/tmp/cloud-info-provider') {
-                //dir('cloud-info-provider') {
-                //    sh 'sudo apt-get update && sudo apt-get install -y devscripts debhelper python-all-dev python-pbr python-setuptools'
-                //    sh 'debuild --no-tgz-check clean binary'
-                //}
+                dir("${WORKSPACE}/cloud-info-provider") {
+                    sh 'sudo apt-get update && sudo apt-get install -y devscripts debhelper python-all-dev python-pbr python-setuptools'
+                    sh 'debuild --no-tgz-check clean binary'
+                }
                 //dir('/tmp/cloud-info-provider/debs/cloud-info-provider-openstack') {
                 //    sh 'debuild --no-tgz-check clean binary'
                 //}
