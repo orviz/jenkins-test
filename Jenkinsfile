@@ -31,6 +31,8 @@ pipeline {
     }
 
     post {
-        archiveArtifacts artifacts: 'debs/*.deb'
+        success {
+            archiveArtifacts artifacts: 'debs/*.deb'
+        }
     }                          
 }
