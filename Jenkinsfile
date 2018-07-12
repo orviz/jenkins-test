@@ -7,6 +7,18 @@ pipeline {
 
 
     stages {
+        stage('Properties') {
+			steps {
+                script {
+                    properties([
+                        pipelineTriggers([
+                            [$class: "GitHubPushTrigger"]
+                        ])
+                    ])
+                }
+                echo 'Environment step'
+            }
+        }
         stage('Build') {
             parallel {
                 stage('Build on Ubuntu16.04') {
