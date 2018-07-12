@@ -22,7 +22,6 @@ pipeline {
         stage('Build') {
             parallel {
                 stage('Build on Ubuntu16.04') {
-                    properties([pipelineTriggers([[$class: 'GitHubPushTrigger'], pollSCM('H/15 * * * *')])])
                     agent {
                         label 'bubuntu16'
                     }
