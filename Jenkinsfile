@@ -5,16 +5,23 @@ pipeline {
     //    pollSCM('H/15 * * * *')
     //}
 
-    properties([pipelineTriggers([[$class: 'GitHubPushTrigger'], pollSCM('H/15 * * * *')])])
 
     stages {
         stage('Build') {
             parallel {
                 stage('Build on Ubuntu16.04') {
+                    properties([pipelineTriggers([[$class: 'GitHubPushTrigger'], pollSCM('H/15 * * * *')])])
                     agent {
                         label 'bubuntu16'
                     }
                     steps {
+						script {
+                            properties([
+                                pipelineTriggers([
+                                    [$class: "GitHubPushTrigger"]
+                                ])
+                            ])
+                        }
                         echo 'Within build on Ubuntu16.04'   
                         sh 'git clone https://github.com/EGI-Foundation/cloud-info-provider'
                         dir("${WORKSPACE}/cloud-info-provider") {
